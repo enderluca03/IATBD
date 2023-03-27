@@ -8,18 +8,10 @@
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 </head>
 <body>
+  <x-navbar/>
+  <main>
     <h1>PassenOpJeDier</h1>
     <h2>Home</h2>
-    <div>
-      <p>Acount</p>
-      <a href='{{ route('login') }}'>Login</a>
-      <a href='{{ route('register') }}'>Register</a>
-      <a href='{{ route('dashboard') }}'>Dashboard</a>
-    </div>
-    <div>
-      <p>Other</p>
-      <a href='{{ route('home') }}'>Home</a>
-      <a href='{{ route('posts') }}'>All Posts</a>
-    </div>
+  </main>
 </body>
 </html>

@@ -1,4 +1,72 @@
+* {
+  padding: 0;
+  margin: auto;
+}
+
+body{
+  background-color: rgb(36, 43, 67);
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto;
+
+  padding: 5%;
+}
+
 h1 {
-  color: brown;
   border: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+/* Navbar Component */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem;
+  height: 5rem;
+  background-color: #202020;
+}
+
+.homebutton {
+  font-size: 1.5rem;
+  font-family: "Fira", sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #28d886;
+}
+
+.homebutton a {
+  text-decoration: none;
+  color: #28d886;
+}
+
+.navlist ul {
+  list-style-type: none;
+}
+
+.navlist a {
+  text-decoration: none;
+  color: #28d886;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .homebutton {
+    font-size: 2.5rem;
+  }
+
+  .navlist a {
+    font-size: 1.5rem;
+  }
 }
