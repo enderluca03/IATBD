@@ -11,7 +11,7 @@
   <x-navbar/>
   <main>
     <h1>PassenOpJeDier</h1>
-    <h2>All Posts</h2>
+    <h2>New Post</h2>
   </main>
 </body>
 </html>

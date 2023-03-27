@@ -5,7 +5,7 @@
     <nav class="navlist">
         <ul>
             <li><a href='{{ route('register') }}'>Account</a></li>
-            <li><a href='{{ route('posts') }}'>All Posts</a></li>
+            <li><a href='{{ route('newPost') }}'>New Post</a></li>
         </ul>
     </nav>
 </div>

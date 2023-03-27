@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('extra_info', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger("Owner");
+            $table->string("street");
+            $table->string("town");
+            
+
+            $table->foreign("owner")->references("id")->on("users");
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('extra_info');
+        Schema::dropIfExists('users');
     }
 };
