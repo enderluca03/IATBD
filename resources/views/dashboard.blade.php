@@ -14,9 +14,7 @@
                 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1>PassenOpJeDier</h1>
-                    <a href='{{ route('login') }}'>Login</a>
-                    <a href='{{ route('register') }}'>Register</a>
-                    <a href='{{ route('dashboard') }}'>Dashboard</a>
+                    <a href='{{ route('home') }}'>Home</a>
                 </div>
             </div>
         </div>
