@@ -36,6 +36,10 @@ Route::middleware(['auth'])-> group(function() {
 
     Route::get('/posts', function () {
         return view('posts/index');
+    })->name('postDetail');
+
+    Route::get('/posts/newPost', function () {
+        return view('posts/newPost');
     })->name('newPost');
 });
 
