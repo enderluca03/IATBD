@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['user','admin', 'owner'])->default('user');
-            $table->string("media")->default("/media/Users/noimage.png");
+            $table->string("media")->default("/media/Users/Not_found.jpg");
             $table->rememberToken();
             $table->timestamps();
         });

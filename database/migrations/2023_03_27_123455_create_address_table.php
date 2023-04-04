@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("Owner");
-            $table->string("street");
+            $table->string("address")->unique();
             $table->string("town");
-            
 
             $table->foreign("owner")->references("id")->on("users");
         });
@@ -27,6 +26,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('address', function (Blueprint $table) {
+            $table->dropForeign('location_owner_foreign');
+        });
         Schema::dropIfExists('users');
     }
 };
