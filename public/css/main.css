@@ -66,3 +66,43 @@ a {
     color: #28d886;
     font-size: 1.5rem;
 }
+
+/* Cards */
+
+article {
+    width: 40vw;
+    height: auto;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 30vh;
+    background-color: #202020;
+
+    color: #28d886;
+}
+
+article form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+article form input {
+    background-color: #2a4534;
+    color: white;
+    margin: 5%;
+}
+
+article form select {
+    background-color: #2a4534;
+    color: white;
+    margin: 5%;
+}
+
+article form textarea {
+    background-color: #2a4534;
+    color: white;
+    margin: 5%;
+}

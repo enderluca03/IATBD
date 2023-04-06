@@ -1389,6 +1389,11 @@ select {
 .group:hover .group-hover\:stroke-gray-600 {
     stroke: #4b5563;
 }
+
+.bodyColor {
+    background-color: rgb(25 27 36);
+}
+
 @media (prefers-reduced-motion: no-preference) {
     .motion-safe\:hover\:scale-\[1\.01\]:hover {
         --tw-scale-x: 1.01;

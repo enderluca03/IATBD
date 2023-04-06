@@ -41,6 +41,10 @@ Route::middleware(['auth'])-> group(function() {
     Route::get('/posts/newPost', function () {
         return view('posts/newPost');
     })->name('newPost');
+
+    Route::get('/animals/newAnimal', function () {
+        return view('animals/newAnimal');
+    })->name('newAnimal');
 });
 
 
