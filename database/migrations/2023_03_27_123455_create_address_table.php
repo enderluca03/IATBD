@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('address', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("Owner");
+            $table->unsignedBigInteger("owner");
             $table->string("address")->unique();
             $table->string("town");
 
-            $table->foreign("owner")->references("id")->on("users");
+            $table->foreign("owner")->references('id')->on("users");
         });
     }
 
