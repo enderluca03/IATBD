@@ -1,5 +1,6 @@
 <div class="navbar">   
     <section class="homebutton">
+        <x-application-logo />
         <a href='{{ route('home') }}'>Home</a>
     </section>
     <nav class="navlist">
