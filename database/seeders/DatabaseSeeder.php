@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,9 +24,9 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             AnimalSpeciesTableSeeder::class,
             AnimalsTableSeeder::class,
+            AnimalsPicsTableSeeder::class,
             AddressTableSeeder::class,
             AddressPicsTableSeeder::class,
-            AnimalsPicsTableSeeder::class,
             AddressAvailableTableSeeder::class,
             SearchTableSeeder::class,
             FeedbackTableSeeder::class,

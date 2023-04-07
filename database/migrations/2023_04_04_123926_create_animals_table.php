@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id("animalID");
             $table->string("name");
             $table->integer("age");
-            $table->string("kind");
+            $table->string("species");
             $table->unsignedBigInteger("owner");
             $table->longText("note");
 
-            $table->foreign("kind")->references("kind")->on("animal_species");
+            $table->foreign("species")->references("species")->on("animal_species");
             $table->foreign("owner")->references('id')->on("users");
         });
     }
@@ -30,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('animals', function (Blueprint $table) {
-            $table->dropForeign('animals_kind_foreign');
+            $table->dropForeign('animal_species_foreign');
             $table->dropForeign('animals_owner_foreign');
         });
         Schema::dropIfExists('animals');

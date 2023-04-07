@@ -42,9 +42,17 @@ Route::middleware(['auth'])-> group(function() {
         return view('posts/newPost');
     })->name('newPost');
 
+    Route::get('/animals', function () {
+        return view('animals/index');
+    })->name('animals');
+
     Route::get('/animals/newAnimal', function () {
         return view('animals/newAnimal');
     })->name('newAnimal');
+
+    Route::get('/animals/animalDetail', function () {
+        return view('animals/animalDetail');
+    })->name('animalDetail');
 });
 
 

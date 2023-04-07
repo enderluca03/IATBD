@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use DB;
 
 class AnimalSpeciesTableSeeder extends Seeder
 {
@@ -12,11 +13,11 @@ class AnimalSpeciesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $kind_of_animals_array = ["Dog", "Cat", "Fish", "Bird", "Guinea Pig"];
+        $animal_species_array = ["Dog", "Cat", "Fish", "Bird", "Guinea Pig"];
 
-        foreach($kind_of_animals_array as $kind){
-            DB::table('kind_of_animals')->insert([
-                'kind' => $kind
+        foreach($animal_species_array as $species){
+            DB::table('animal_species')->insert([
+                'species' => $species
             ]);
         }
     }
