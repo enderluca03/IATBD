@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use DB;
 
 class AddressAvailableTableSeeder extends Seeder
 {
@@ -12,6 +13,9 @@ class AddressAvailableTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('address_available')->insert([
+            'address' => 'Jedi Temple',
+            'for' => 'Dog'
+        ]);
     }
 }

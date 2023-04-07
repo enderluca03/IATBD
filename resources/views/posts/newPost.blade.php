@@ -12,6 +12,9 @@
   <main>
     <h1>PassenOpJeDier</h1>
     <h2>New Post</h2>
+    <article>
+      <x-add-post />
+    </article>
   </main>
 </body>
 </html>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Animals;
-use App\Models\Searching;
+use App\Models\Search;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class AnimalController extends Controller
     public function showSpecific($id){
         $user = Auth::user();
 
-        $search = Searching::where('id', $id)->first();
+        $search = Search::where('id', $id)->first();
 
         $animal = $search->searchingFor()->first();
 

@@ -13,6 +13,10 @@ class FeedbackTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('feedback')->insert([
+            'address' => 'Jedi Temple',
+            'feedback' => "Not a lot of Jedi",
+            'rate' => 5,
+        ]);
     }
 }

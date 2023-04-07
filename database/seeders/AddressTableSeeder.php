@@ -13,6 +13,10 @@ class AddressTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('address')->insert([
+            'address' => 'Jedi Temple',
+            'town' => 'Coruscant',
+            'owner' => 1,
+        ]);
     }
 }

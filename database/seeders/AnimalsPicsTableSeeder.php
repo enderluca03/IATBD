@@ -13,6 +13,9 @@ class AnimalsPicsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('animals_pics')->insert([
+            'animal' => '1',
+            'pics' => '/media/Animals/obiwan.jpg'
+        ]);
     }
 }

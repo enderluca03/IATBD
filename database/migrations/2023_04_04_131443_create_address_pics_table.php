@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('address_pics', function (Blueprint $table) {
             $table->string("address");
-            $table->string("pics")->default("/media/Locations/Not_found.jpg");
+            $table->string("pics")->default("/media/Address/Not_found.jpg");
 
             $table->foreign("address")->references("address")->on("address");
         });

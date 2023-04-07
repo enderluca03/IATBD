@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
             "name" => "Jack Sparrow",
             "email" => "jacksparrow@gmail.com",
             "password" => bcrypt("Rum"),
-            'media' => '/media/Users/jack_sparrow.jpg',
+            'pics' => '/media/Users/jack_sparrow.jpg',
         ]);
     }
 }

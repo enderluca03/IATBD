@@ -10,8 +10,24 @@
 <body>
   <x-navbar/>
   <main>
-    <h1>PassenOpJeDier</h1>
-    <h2>Home</h2>
+    <section class="pageLink">
+      <article>
+        <p>Bekijk alle verzoeken</p>
+        <a href="{{ route('allPosts') }}">Alle verzoeken</a>
+      </article>
+      <article>
+        <p>Maak een nieuw verzoek</p>
+        <a href="{{ route('newPost') }}">Nieuw verzoek</a>
+      </article>
+      <article>
+        <p>Bekijk alle dieren</p>
+        <a href="{{ route('animals') }}">Dieren</a>
+      </article>
+      <article>
+        <p>Voeg een huisdier toe</p>
+        <a href="{{ route('newAnimal') }}">Dier toevoegen</a>
+      </article>
+    </section>
   </main>
 </body>
 </html>

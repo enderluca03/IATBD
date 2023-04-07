@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,17 +35,13 @@ Route::middleware(['auth'])-> group(function() {
         return view('index');
     })->name("home");
 
-    Route::get('/posts', function () {
-        return view('posts/index');
-    })->name('postDetail');
+    Route::get('/posts', [MainController::class, 'showAddresses'])->name("allPosts");
 
     Route::get('/posts/newPost', function () {
         return view('posts/newPost');
     })->name('newPost');
 
-    Route::get('/animals', function () {
-        return view('animals/index');
-    })->name('animals');
+    Route::get('/animals', [MainController::class, 'showAnimals'])->name("animals");
 
     Route::get('/animals/newAnimal', function () {
         return view('animals/newAnimal');
