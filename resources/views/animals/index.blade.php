@@ -12,7 +12,9 @@
   <main>
     <h1>PassenOpJeDier</h1>
     @foreach ($animals as $animal)
-      <h1>{{$animal->name}}</h1>
+      <article class="detailCard">
+        <h1>{{$animal->name}}</h1>
+      </article>
     @endforeach
   </main>
 </body>

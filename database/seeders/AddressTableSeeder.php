@@ -18,5 +18,11 @@ class AddressTableSeeder extends Seeder
             'town' => 'Coruscant',
             'owner' => 1,
         ]);
+
+        DB::table('address')->insert([
+            'address' => 'Zernikedreef',
+            'town' => 'Leiden',
+            'owner' => 2,
+        ]);
     }
 }

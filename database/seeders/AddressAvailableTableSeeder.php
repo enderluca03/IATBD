@@ -17,5 +17,10 @@ class AddressAvailableTableSeeder extends Seeder
             'address' => 'Jedi Temple',
             'for' => 'Dog'
         ]);
+
+        DB::table('address_available')->insert([
+            'address' => 'Zernikedreef',
+            'for' => 'Cat'
+        ]);
     }
 }
