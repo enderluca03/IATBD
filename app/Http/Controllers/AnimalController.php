@@ -7,25 +7,25 @@ use App\Models\Animals;
 use App\Models\Search;
 use Auth;
 
-use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
-    public function showSpecific($id){
+    public function showSpecific($name){
         $user = Auth::user();
 
-        $search = Search::where('id', $id)->first();
+        $name = str_replace("%20", "", $name);
+        $animalName = Animals::where('name', $name)->first();
 
-        $animal = $search->searchingFor()->first();
+        // $search = Search::where('id', $id)->first();
 
-        $allPics =  $animal->searchPics;
+        $allPics =  $animalName->searchPics;
 
-        return view('animalDetail', [
+        return view('animals/animalDetail', [
             'user' => $user,
 
-            'id' => $id,
-            'search' => $search,
-            'animal' => $animal,
+            // 'id' => $id,
+            // 'search' => $search,
+            'animal' => $animalName,
             'allPics' => $allPics,
         ]);
     }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Location;
+use App\Models\Address;
 use Auth;
 
 
@@ -16,12 +16,12 @@ class AddressController extends Controller
         $address = Address::where('address', $location)->first();
         $allPics =  $address->searchPics;
 
-        return view('homeDetails', [
+        return view('posts/postDetail', [
             'user' => $user,
 
-            'address' => $location,
-            'location' => $address,
-            'allMedia' => $allMedia,
+            'address' => $address,
+            'location' => $location,
+            'allPics' => $allPics,
         ]);
     }
 

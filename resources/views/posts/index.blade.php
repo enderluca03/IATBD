@@ -16,7 +16,10 @@
       <article class="detailCard">
         <h1>{{$address->address}}</h1>
         <p>{{$address->town}}</p>
-        <a href="{{ route('postDetail') }}" >Naar deze post</a>
+        {{-- <a href="{{ route('postDetail') }}" >Naar deze post</a> --}}
+        <a href="/posts/{{$address->address}}">
+          Naar deze post
+      </a>
       </article>
     @endforeach
 

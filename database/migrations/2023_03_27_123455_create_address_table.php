@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("owner");
             $table->string("address")->unique();
             $table->string("town");
+            $table->unsignedBigInteger("owner");
 
             $table->foreign("owner")->references('id')->on("users");
         });

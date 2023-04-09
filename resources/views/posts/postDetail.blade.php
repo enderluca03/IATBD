@@ -11,8 +11,10 @@
   <x-navbar/>
   <main>
     <h1>PassenOpJeDier</h1>
-    <h2>Post Detail</h2>
-    
+    <article class="detailCard">
+      <h1>{{$address->address}}</h1>
+      <p>{{$address->town}}</p>
+    </article>
   </main>
 </body>
 </html>

@@ -14,6 +14,9 @@
     @foreach ($animals as $animal)
       <article class="detailCard">
         <h1>{{$animal->name}}</h1>
+        <a href="/animals/{{$animal->name}}">
+          Naar dit dier
+         </a>
       </article>
     @endforeach
   </main>
