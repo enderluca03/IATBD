@@ -13,12 +13,9 @@
     <h1>PassenOpJeDier</h1>
     <article class="detailCard">
     @foreach ($animals as $animal)
-      	<article class="detailCard">
-          <h1>{{$animal->name}}</h1>
-          {{-- <a href="/animals/{{$animal->name}}">
-            Naar dit dier
-          </a> --}}
-        </article>
+      <article>
+        <h1>{{$animal->name}}</h1>
+      </article>
     @endforeach
     @foreach ($search as $searched)
       <a href="/animals/{{$searched->id}}">

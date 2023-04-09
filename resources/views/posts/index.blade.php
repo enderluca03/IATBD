@@ -22,7 +22,6 @@
       </a>
       </article>
     @endforeach
-
   </main>
 </body>
 </html>
