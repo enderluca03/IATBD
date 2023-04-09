@@ -11,7 +11,6 @@
   <x-navbar/>
   <main>
     <h1>PassenOpJeDier</h1>
-    <h2>New Animal</h2>
     <article>
       <x-addAnimal />
     </article>

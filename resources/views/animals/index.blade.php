@@ -13,8 +13,11 @@
     <h1>PassenOpJeDier</h1>
     <article class="detailCard">
     @foreach ($animals as $animal)
-      <article>
+      <article class="detailCard">
         <h1>{{$animal->name}}</h1>
+        <a href="/animals/{{$animal->animalID}}">
+          Naar dit dier
+        </a>
       </article>
     @endforeach
     @foreach ($search as $searched)

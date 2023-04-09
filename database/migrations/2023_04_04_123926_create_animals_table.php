@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("species");
             $table->unsignedBigInteger("owner");
             $table->longText("note");
+            $table->date("updated_at")->default("2000-01-01 00:00:00");
+            $table->date("created_at")->default("2000-01-01 00:00:00");
 
             $table->foreign("species")->references("species")->on("animal_species");
             $table->foreign("owner")->references('id')->on("users");

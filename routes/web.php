@@ -45,17 +45,19 @@ Route::middleware(['auth'])-> group(function() {
 
     Route::get('/posts/{location}', [AddressController::class, 'showSpecific'])->name("postDetail");
 
-    Route::get('/posts/newPost', function () {
-        return view('posts/newPost');
+    Route::get('/adding/newPost', function () {
+        return view('adding/newPost');
     })->name('newPost');
 
     Route::get('/animals', [MainController::class, 'showAnimals'])->name("animals");
 
     Route::get('/animals/{id}', [AnimalController::class, 'showSpecific'])->name("animalDetail");
 
-    Route::get('/animals/newAnimal', function () {
-        return view('animals/newAnimal');
+    Route::get('/adding/newAnimal', function () {
+        return view('adding/newAnimal');
     })->name('newAnimal');
+
+    Route::post('adding/addAnimal', [AnimalController::class, 'store']);
 });
 
 

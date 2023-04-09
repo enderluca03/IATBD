@@ -13,23 +13,24 @@ class AnimalController extends Controller
     public function showSpecific($id){
         $user = Auth::user();
 
-        // $id = str_replace("%20", "", $id);
-        // $animal = Animals::where('id', $id)->first();
-
         $search = Search::where('id', $id)->first();
 
-        $animal = $search->searchingFor()->first();
+        if ($search != null) {
+            $animal = $search->searchingFor()->first();
 
-        $allPics =  $animal->searchPics;
 
-        return view('animals/animalDetail', [
-            'user' => $user,
+            $allPics =  $animal->searchPics;
 
-            'id' => $id,
-            'search' => $search,
-            'animal' => $animal,
-            'allPics' => $allPics,
-        ]);
+            return view('animals/animalDetail', [
+                'user' => $user,
+
+                'id' => $id,
+                'search' => $search,
+                'animal' => $animal,
+                'allPics' => $allPics,
+            ]);
+        }
+
     }
 
     public function showContact($id){
@@ -47,5 +48,19 @@ class AnimalController extends Controller
             'search' => $search,
             'animal' => $animal,
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $user = Auth::user();
+
+        $animal = new Animals;
+        $animal->name = $request->name;
+        $animal->age = $request->age;
+        $animal->species = $request->species;
+        $animal->note = $request->note;
+        $animal->owner = $user->id;
+        $animal->save();
+        return redirect('adding/newAnimal')->with('status', 'Animal inserted in DB');
     }
 }
