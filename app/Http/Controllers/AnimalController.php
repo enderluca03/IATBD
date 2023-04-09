@@ -10,22 +10,24 @@ use Auth;
 
 class AnimalController extends Controller
 {
-    public function showSpecific($name){
+    public function showSpecific($id){
         $user = Auth::user();
 
-        $name = str_replace("%20", "", $name);
-        $animalName = Animals::where('name', $name)->first();
+        // $id = str_replace("%20", "", $id);
+        // $animal = Animals::where('id', $id)->first();
 
-        // $search = Search::where('id', $id)->first();
+        $search = Search::where('id', $id)->first();
 
-        $allPics =  $animalName->searchPics;
+        $animal = $search->searchingFor()->first();
+
+        $allPics =  $animal->searchPics;
 
         return view('animals/animalDetail', [
             'user' => $user,
 
-            // 'id' => $id,
-            // 'search' => $search,
-            'animal' => $animalName,
+            'id' => $id,
+            'search' => $search,
+            'animal' => $animal,
             'allPics' => $allPics,
         ]);
     }

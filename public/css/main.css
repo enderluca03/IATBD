@@ -85,6 +85,11 @@ article {
     color: #28d886;
 }
 
+article img {
+    width: 90%;
+    height: 90%;
+}
+
 article form {
     display: grid;
     justify-content: center;

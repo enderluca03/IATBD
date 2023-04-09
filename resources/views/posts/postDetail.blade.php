@@ -15,6 +15,11 @@
       <h1>{{$address->address}}</h1>
       <p>{{$address->town}}</p>
     </article>
+    @foreach ($allPics as $pics)
+      <article>
+        <img src="{{$pics->pics}}" alt="image of address" />
+      </article>
+    @endforeach
   </main>
 </body>
 </html>

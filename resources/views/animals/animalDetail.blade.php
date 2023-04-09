@@ -13,7 +13,12 @@
     <h1>PassenOpJeDier</h1>
     <article class="detailCard">
       <h1>{{$animal->name}}</h1>
-      
+      <p>{{$animal->note}}</p>
+      @foreach ($allPics as $pics)
+        <article>
+          <img src="{{$pics->pics}}" alt="image of the animal" />
+        </article>
+      @endforeach
     </article>
   </main>
 </body>

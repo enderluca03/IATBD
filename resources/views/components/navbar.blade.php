@@ -5,7 +5,7 @@
     </section>
     <nav class="navlist">
         <ul>
-            <li><a href='{{ route('register') }}'>Account</a></li>
+            <li><a href='{{ route('dashboard') }}'>Account</a></li>
             <li><a href='{{ route('newPost') }}'>New Post</a></li>
         </ul>
     </nav>
