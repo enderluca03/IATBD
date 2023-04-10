@@ -10,16 +10,26 @@
 <body>
   <x-navbar/>
   <main>
-    <h1>PassenOpJeDier</h1>
-    @foreach ($addresses as $address)
+    <article>    
+      @foreach ($addresses as $address)
       <article class="detailCard">
         <h1>{{$address->address}}</h1>
-        <p>{{$address->town}}</p>
-        <a href="/posts/{{$address->address}}">
-          Naar deze post
+        <a href="/deletePost/{{$address->address}}">
+          Verwijder dit element
         </a>
       </article>
     @endforeach
+    </article>
+    <article>
+      @foreach ($animals as $animal)
+        <article class="detailCard">
+          <h1>{{$animal->name}}</h1>
+          <a href="/deleteAnimal/{{$animal->animalID}}">
+            Verwijder dit element
+          </a>
+        </article>
+      @endforeach
+      </article>
   </main>
 </body>
 </html>

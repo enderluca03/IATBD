@@ -11,6 +11,7 @@ use App\Models\AddressPics;
 use App\Models\Search;
 use App\Models\User;
 use Auth;
+use DB;
 
 
 class MainController extends Controller
@@ -57,5 +58,36 @@ class MainController extends Controller
             'pics' => $pics,
             'user' => $user,
         ]);
+    }
+
+    public function showAll(){
+        $animals = Animals::all();
+        $species = AnimalSpecies::all();
+        $addresses = Address::all();
+        $search = Search::all();
+        $user = Auth::user();
+
+        return view('remove', [
+            'animals' => $animals,
+            'species' => $species,
+            'addresses' => $addresses,
+            'searchg' => $search,
+            'user' => $user,
+        ]);
+    }
+
+    public function deletePost($address){
+        DB::delete('delete from address_available where address = ?',[$address]);
+        DB::delete('delete from address_pics where address = ?',[$address]);
+        DB::delete('delete from feedback where address = ?',[$address]);
+        DB::delete('delete from address where address = ?',[$address]);
+        return redirect('remove')->with('status', 'Removed post from db');
+    }
+
+    public function deleteAnimal($animalID){
+        DB::delete('delete from animals_pics where animal = ?',[$animalID]);
+        DB::delete('delete from search where animal = ?',[$animalID]);
+        DB::delete('delete from animals where animalID = ?',[$animalID]);
+        return redirect('remove')->with('status', 'Removed post from db');
     }
 }

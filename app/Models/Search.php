@@ -16,7 +16,7 @@ class Search extends Model
     }
 
     public function searchingFor(){
-        return $this->belongsTo('\App\Models\Animals', "for", "animalID");
+        return $this->belongsTo('\App\Models\Animals', "animal", "animalID");
     }
 
     public function mediaAnimal(){

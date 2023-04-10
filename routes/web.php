@@ -60,7 +60,18 @@ Route::middleware(['auth'])-> group(function() {
     })->name('newAnimal');
 
     Route::post('adding/addAnimal', [AnimalController::class, 'store']);
+
+
+
+    Route::get('/deletePost/{id}', [MainController::class, "deletePost"]);
+
+    Route::get('/deleteAnimal/{id}', [MainController::class, "deleteAnimal"]);
+
+
 });
 
+Route::middleware(['auth', 'owner'])-> group(function() {
+    Route::get('/remove', [MainController::class, 'showAll']);
+});
 
 require __DIR__.'/auth.php';

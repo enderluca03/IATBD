@@ -81,8 +81,8 @@ article {
     align-items: center;
 
     min-height: 30vh;
-    background-color: #202020;
 
+    border-radius: 10px;
     color: #28d886;
 }
 
@@ -137,6 +137,7 @@ article form textarea {
 .detailCard {
     width: 35vw;
     margin-bottom: 5%;
+    background-color: #202020;
 }
 
 @media only screen and (max-width: 600px) {

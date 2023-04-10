@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('search', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("owner");
-            $table->unsignedBigInteger("for");
+            $table->unsignedBigInteger("animal");
             $table->dateTime("from");
             $table->dateTime("to");
             $table->double("payment", 5, 2);
@@ -22,7 +22,7 @@ return new class extends Migration
 
 
             $table->foreign("owner")->references("id")->on("users");
-            $table->foreign("for")->references("animalID")->on("animals");
+            $table->foreign("animal")->references("animalID")->on("animals");
         });
     }
 
