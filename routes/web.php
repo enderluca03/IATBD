@@ -49,6 +49,8 @@ Route::middleware(['auth'])-> group(function() {
         return view('adding/newPost');
     })->name('newPost');
 
+    Route::post('adding/addPost', [AddressController::class, 'store']);
+
     Route::get('/animals', [MainController::class, 'showAnimals'])->name("animals");
 
     Route::get('/animals/{id}', [AnimalController::class, 'showSpecific'])->name("animalDetail");

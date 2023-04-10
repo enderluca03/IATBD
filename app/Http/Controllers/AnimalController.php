@@ -61,6 +61,15 @@ class AnimalController extends Controller
         $animal->note = $request->note;
         $animal->owner = $user->id;
         $animal->save();
+
+        $search = new Search;
+        $search->owner = $user->id;
+        $search->for = $animal->id;
+        $search->from = '2023-06-30 12:50:00';
+        $search->to = '2023-06-30 23:59:00';
+        $search->payment = 420.00;
+        $search->save();
+
         return redirect('adding/newAnimal')->with('status', 'Animal inserted in DB');
     }
 }

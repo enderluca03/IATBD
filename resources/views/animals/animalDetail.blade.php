@@ -14,6 +14,7 @@
     <article class="detailCard">
       <h1>{{$animal->name}}</h1>
       <p>{{$animal->note}}</p>
+      <p>{{$animal->type}}</p>
       @foreach ($allPics as $pics)
         <article>
           <img src="{{$pics->pics}}" alt="image of the animal" />

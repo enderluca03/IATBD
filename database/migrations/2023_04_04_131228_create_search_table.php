@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double("payment", 5, 2);
             $table->timestamps();
 
+
             $table->foreign("owner")->references("id")->on("users");
             $table->foreign("for")->references("animalID")->on("animals");
         });

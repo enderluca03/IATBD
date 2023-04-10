@@ -39,4 +39,26 @@ class AddressController extends Controller
             'location' => $address,
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $user = Auth::user();
+
+        $address = new Address;
+
+        $address->owner = $user->id;
+        $address->address = $request->address;
+        $address->town = $request->town;
+        $address->save();
+
+        // $search = new Search;
+        // $search->owner = $user->id;
+        // $search->for = $animal->id;
+        // $search->from = '2023-06-30 12:50:00';
+        // $search->to = '2023-06-30 23:59:00';
+        // $search->payment = 420.00;
+        // $search->save();
+
+        return redirect('adding/newPost')->with('status', 'Address inserted in DB');
+    }
 }

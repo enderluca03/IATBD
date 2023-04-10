@@ -20,11 +20,6 @@
         </a>
       </article>
     @endforeach
-    @foreach ($search as $searched)
-      <a href="/animals/{{$searched->id}}">
-        Naar dit dier
-      </a>
-    @endforeach
     </article>
   </main>
 </body>

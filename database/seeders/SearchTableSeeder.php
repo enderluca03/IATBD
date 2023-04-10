@@ -16,9 +16,9 @@ class SearchTableSeeder extends Seeder
         DB::table('search')->insert([
             'owner' => 1,
             'for' => 1,
-            'from' => '2022-05-15 12:50:00',
-            'to' => '2022-05-17 21:00:00',
-            'payment' => 20.00
+            'from' => '2023-06-30 12:50:00',
+            'to' => '2023-09-16 21:00:00',
+            'payment' => 69.00
         ]);
     }
 }
