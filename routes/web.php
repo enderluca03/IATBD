@@ -51,6 +51,8 @@ Route::middleware(['auth'])-> group(function() {
 
     Route::post('adding/addPost', [AddressController::class, 'store']);
 
+    Route::get('/deletePost/{id}', [MainController::class, "deletePost"]);
+
     Route::get('/animals', [MainController::class, 'showAnimals'])->name("animals");
 
     Route::get('/animals/{id}', [AnimalController::class, 'showSpecific'])->name("animalDetail");
@@ -60,10 +62,6 @@ Route::middleware(['auth'])-> group(function() {
     })->name('newAnimal');
 
     Route::post('adding/addAnimal', [AnimalController::class, 'store']);
-
-
-
-    Route::get('/deletePost/{id}', [MainController::class, "deletePost"]);
 
     Route::get('/deleteAnimal/{id}', [MainController::class, "deleteAnimal"]);
 

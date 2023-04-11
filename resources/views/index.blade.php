@@ -11,19 +11,19 @@
   <x-navbar/>
   <main>
     <section class="pageLink">
-      <article>
+      <article class="detailCard">
         <p>Bekijk alle verzoeken</p>
         <a href="{{ route('allPosts') }}">Alle verzoeken</a>
       </article>
-      <article>
+      <article class="detailCard">
         <p>Maak een nieuw verzoek</p>
         <a href="{{ route('newPost') }}">Nieuw verzoek</a>
       </article>
-      <article>
+      <article class="detailCard">
         <p>Bekijk alle dieren</p>
         <a href="{{ route('animals') }}">Dieren</a>
       </article>
-      <article>
+      <article class="detailCard">
         <p>Voeg een huisdier toe</p>
         <a href="{{ route('newAnimal') }}">Dier toevoegen</a>
       </article>
