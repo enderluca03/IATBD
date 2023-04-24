@@ -8,6 +8,10 @@
     </head>
     <body class="antialiased">
         <main>
+            <section class="welcomeText">
+                <h1>Welkom bij PassenOpJeDier!</h1>
+                <p>Log in of maak een account aan om een oppas te vinden voor je geliefde huisdieren.</p>
+            </section>
             <section class="login">
                 <a href='{{ route('login') }}'>Login</a>
             </section>

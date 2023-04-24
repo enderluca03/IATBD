@@ -21,9 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name("welcome");
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/index', function () {
+//     return view('index');
+// })->middleware(['auth', 'verified'])->name("home");
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,8 +38,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])-> group(function() {
     Route::get('/index', function () {
+        return view('dashboard');
+    })->name("account");
+
+    Route::get('/dashboard', function () {
         return view('index');
-    })->name("home");
+    })->name('dashboard');
 
     Route::get('/posts', [MainController::class, 'showAddresses'])->name("allPosts");
 

@@ -65,3 +65,64 @@ a {
 .register a {
     font-size: 2rem;
 }
+
+.welcomeText {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(91, 114, 56);
+}
+
+.welcomeText h1 {
+    font-size: 5rem;
+    padding: 25px;
+}
+
+.welcomeText p {
+    font-size: 2rem;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 750px) {
+    main {
+        grid-template-columns: auto;
+    }
+
+    .welcomeText h1 {
+        font-size: 3rem;
+        padding: 15px;
+    }
+
+    .welcomeText p {
+        font-size: 2rem;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .login {
+        grid-column-start: 1;
+    }
+
+    .register {
+        grid-column-start: 1;
+    }
+
+    .welcomeText {
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+
+    .welcomeText h1 {
+        font-size: 2rem;
+        padding: 15px;
+    }
+
+    .welcomeText p {
+        font-size: 1rem;
+        padding: 5px;
+    }
+}
