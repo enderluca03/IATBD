@@ -17,7 +17,7 @@
       <p>{{$animal->type}}</p>
       @foreach ($allPics as $pics)
         <article>
-          <img src="{{$pics->pics}}" alt="image of the animal" />
+          <img src="/media/Animals/{{$pics->pics}}" alt="image of the animal" />
         </article>
       @endforeach
     </article>

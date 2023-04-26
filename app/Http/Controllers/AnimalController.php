@@ -70,9 +70,24 @@ class AnimalController extends Controller
         $search->payment = 420.00;
         $search->save();
 
-        $pics = new AnimalsPics;
-        $pics->animal = $animal->id;
-        $pics->save();
+        if ($animal->id) {
+            if ($request->pics != null) {
+                
+                $file = $request->file('pics');
+                $fileName = time() . '.' . $file->getClientOriginalExtension();
+                $destinationPath = public_path('media/Animals');
+                $file->move($destinationPath, $fileName);
+
+                $pics = new AnimalsPics;
+                $pics->animal = $animal->id;
+                $pics->pics = $fileName;
+                $pics->save();
+            } else {
+                $pics = new AnimalsPics;
+                $pics->animal = $animal->id;
+                $pics->save();
+            }
+        }
 
         return redirect('adding/newAnimal')->with('status', 'Animal inserted in DB');
     }

@@ -15,7 +15,7 @@ class AnimalsPicsTableSeeder extends Seeder
     {
         DB::table('animals_pics')->insert([
             'animal' => '1',
-            'pics' => '/media/Animals/obiwan.jpg'
+            'pics' => 'obiwan.jpg'
         ]);
     }
 }

@@ -139,6 +139,19 @@ article form textarea {
     background-color: #202020;
 }
 
+/* Animal and Post */
+.contentMain {
+    grid-template-columns: auto auto auto;
+}
+
+.titleText {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    color: rgb(197, 197, 197);
+    font-size: 2rem;
+    padding: 5%;
+}
+
 @media only screen and (max-width: 600px) {
     .pageLink {
         grid-template-columns: auto;

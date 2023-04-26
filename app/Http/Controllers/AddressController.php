@@ -51,6 +51,27 @@ class AddressController extends Controller
         $address->town = $request->town;
         $address->save();
 
+        if ($address->id) {
+            if ($request->pics != null) {
+                
+            
+                $file = $request->file('pics');
+                $fileName = time() . '.' . $file->getClientOriginalExtension();
+                $destinationPath = public_path('media/Address');
+                $file->move($destinationPath, $fileName);
+
+                $pics = new AddressPics;
+                $pics->address = $address->address;
+                $pics->pics = $fileName;
+
+                $pics->save();
+            } else {
+                $pics = new AddressPics;
+                $pics->address = $address->address;
+                $pics->save();
+            }
+        }
+
         // $search = new Search;
         // $search->owner = $user->id;
         // $search->for = $animal->id;

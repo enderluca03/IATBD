@@ -9,8 +9,10 @@
 </head>
 <body>
   <x-navbar/>
-  <main>
-    <h1>PassenOpJeDier</h1>
+  <main class="contentMain">
+    <section class="titleText">
+      <h1>PassenOpJeDier</h1>
+    </section>
     <article class="detailCard">
     @foreach ($animals as $animal)
       <article class="detailCard">

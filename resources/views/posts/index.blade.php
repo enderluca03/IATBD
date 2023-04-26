@@ -9,8 +9,10 @@
 </head>
 <body>
   <x-navbar/>
-  <main>
-    <h1>PassenOpJeDier</h1>
+  <main class="contentMain">
+    <section class="titleText">
+      <h1>PassenOpJeDier</h1>
+    </section>
     @foreach ($addresses as $address)
       <article class="detailCard">
         <h1>{{$address->address}}</h1>

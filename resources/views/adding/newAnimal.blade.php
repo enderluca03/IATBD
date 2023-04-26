@@ -10,7 +10,9 @@
 <body>
   <x-navbar/>
   <main>
-    <h1>PassenOpJeDier</h1>
+    <section class="titleText">
+      <h1>PassenOpJeDier</h1>
+    </section>
     <article>
       <x-addAnimal />
     </article>

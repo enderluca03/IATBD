@@ -15,7 +15,11 @@ class AddressPicsTableSeeder extends Seeder
     {
         DB::table('address_pics')->insert([
             'address' => 'Jedi Temple',
-            'pics' => '/media/Address/jedi_temple.jpg'
+            'pics' => 'jedi_temple.jpg'
+        ]);
+
+        DB::table('address_pics')->insert([
+            'address' => 'Zernikedreef'
         ]);
     }
 }

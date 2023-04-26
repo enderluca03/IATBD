@@ -1,4 +1,4 @@
-<form name="add-animal" id="add-animal" method="post" action="{{url('adding/addAnimal')}}">
+<form name="add-animal" id="add-animal" method="post" enctype="multipart/form-data" action="{{url('adding/addAnimal')}}">
     @csrf
     <label for="name">Naam</label>
     <input type="text" id="name" name="name" required />
@@ -18,6 +18,10 @@
     <label for="note">Opmerkingen</label>
     <textarea name="note" id="note" cols="30" rows="10"></textarea>
 
-    <button type="submit">Verstuur</button>
+    <label for="pics">Foto*</label>
+    <label for="pics">*Maximaal 2 mb</label>
+    <input type="file" id="pics" name="pics">
+    
+    <input type="submit" id="submit" value="Klaar">
 </form>
 

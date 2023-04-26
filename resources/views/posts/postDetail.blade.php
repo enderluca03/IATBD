@@ -17,7 +17,7 @@
     </article>
     @foreach ($allPics as $pics)
       <article>
-        <img src="{{$pics->pics}}" alt="image of address" />
+        <img src="/media/Address/{{$pics->pics}}" alt="image of address" />
       </article>
     @endforeach
   </main>
