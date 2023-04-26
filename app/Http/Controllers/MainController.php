@@ -76,6 +76,14 @@ class MainController extends Controller
         ]);
     }
 
+    public function showUser(){
+        $user = Auth::user();
+
+        return view('dashboard', [
+            'user' => $user,
+        ]);
+    }
+
     public function deletePost($address){
         DB::delete('delete from address_available where address = ?',[$address]);
         DB::delete('delete from address_pics where address = ?',[$address]);

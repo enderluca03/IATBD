@@ -12,6 +12,12 @@
                     <p>Naar de homepagina</p>
                     <a href="{{ route('dashboard') }}">Home</a>
                 </div>
+                @if ($user->role != "user")
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <p>Naar verwijderen</p>
+                    <a href="{{ route('remove')}}">Verwijder</a>
+                </div>
+                @endif
             </div>
         </div>
     </div>

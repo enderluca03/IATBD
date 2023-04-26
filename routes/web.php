@@ -37,9 +37,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth'])-> group(function() {
-    Route::get('/index', function () {
-        return view('dashboard');
-    })->name("account");
+    Route::get('/index', [MainController::class, 'showUser'])->name("account");
 
     Route::get('/dashboard', function () {
         return view('index');
@@ -77,7 +75,7 @@ Route::middleware(['auth'])-> group(function() {
 });
 
 Route::middleware(['auth', 'owner'])-> group(function() {
-    Route::get('/remove', [MainController::class, 'showAll']);
+    Route::get('/remove', [MainController::class, 'showAll'])->name("remove");
 });
 
 require __DIR__.'/auth.php';

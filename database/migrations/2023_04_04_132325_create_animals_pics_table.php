@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('animals_pics', function (Blueprint $table) {
             $table->unsignedBigInteger("animal");
             $table->string("pics")->default("/media/Animals/Not_found.jpg");
+            $table->timestamps();
 
             $table->foreign("animal")->references("animalID")->on("animals");
         });

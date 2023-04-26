@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Animals;
+use App\Models\AnimalsPics;
 use App\Models\Search;
 use Auth;
 
@@ -17,7 +18,6 @@ class AnimalController extends Controller
 
         if ($search != null) {
             $animal = $search->searchingFor()->first();
-
 
             $allPics =  $animal->searchPics;
 
@@ -69,6 +69,10 @@ class AnimalController extends Controller
         $search->to = '2023-06-30 23:59:00';
         $search->payment = 420.00;
         $search->save();
+
+        $pics = new AnimalsPics;
+        $pics->animal = $animal->id;
+        $pics->save();
 
         return redirect('adding/newAnimal')->with('status', 'Animal inserted in DB');
     }

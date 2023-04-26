@@ -20,6 +20,6 @@ class OwnerCheck
         if (Auth::user()->role != "user") {
             return $next($request);
         }
-        return redirect('/home');
+        return redirect('/dashboard');
     }
 }
