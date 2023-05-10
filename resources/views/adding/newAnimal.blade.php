@@ -13,7 +13,7 @@
     <section class="titleText">
       <h1>PassenOpJeDier</h1>
     </section>
-    <article>
+    <article class="addForm">
       <x-addAnimal />
     </article>
   </main>

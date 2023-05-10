@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Animals;
 use App\Models\AnimalsPics;
 use App\Models\Search;
@@ -21,6 +22,8 @@ class AnimalController extends Controller
 
             $allPics =  $animal->searchPics;
 
+            $name = User::where('id', $id)->first();;
+
             return view('animals/animalDetail', [
                 'user' => $user,
 
@@ -28,6 +31,7 @@ class AnimalController extends Controller
                 'search' => $search,
                 'animal' => $animal,
                 'allPics' => $allPics,
+                'name' => $name,
             ]);
         }
 

@@ -10,8 +10,10 @@
 <body>
   <x-navbar/>
   <main>
-    <h1>PassenOpJeDier</h1>
-    <article>
+    <section class="titleText">
+      <h1>PassenOpJeDier</h1>
+    </section>
+    <article class="addForm">
       <x-add-post />
     </article>
   </main>

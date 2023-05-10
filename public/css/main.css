@@ -14,8 +14,7 @@ main {
 
     display: grid;
     grid-template-columns: auto;
-
-    padding-top: 5%;
+    justify-content: center;
 }
 
 h1 {
@@ -25,6 +24,10 @@ h1 {
 a {
     text-decoration: none;
     color: white;
+}
+
+p {
+    text-align: center;
 }
 
 /* Navbar Component */
@@ -100,7 +103,14 @@ article form {
 article form input {
     background-color: #2a4534;
     color: white;
-    margin: 5%;
+
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #3d5f49;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 article form select {
@@ -113,6 +123,17 @@ article form textarea {
     background-color: #2a4534;
     color: white;
     margin: 5%;
+}
+
+article form input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .pageLink {
@@ -134,9 +155,17 @@ article form textarea {
 }
 
 .detailCard {
-    width: 35vw;
-    margin-bottom: 5%;
+    width: 25vw;
     background-color: #202020;
+    position: relative;
+    animation-name: slide-in;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+/* Add pages */
+.addForm {
+    grid-column-start: 2;
 }
 
 /* Animal and Post */
@@ -152,8 +181,54 @@ article form textarea {
     padding: 5%;
 }
 
+@media only screen and (max-width: 950px) {
+    .detailCard {
+        width: 35vw;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .pageLink {
         grid-template-columns: auto;
+    }
+
+    .detailCard {
+        width: 50vw;
+    }
+
+    article img {
+        width: 80vw;
+    }
+
+    .contentMain {
+        grid-template-columns: auto;
+    }
+
+    .titleText {
+        grid-column-end: auto;
+    }
+}
+
+/* Animations */
+@keyframes slide-in {
+    0% {
+        top: 100px;
+        opacity: 0%;
+    }
+    25% {
+        top: 75px;
+        opacity: 25%;
+    }
+    50% {
+        top: 50px;
+        opacity: 50%;
+    }
+    75% {
+        top: 25px;
+        opacity: 75%;
+    }
+    100% {
+        top: 0px;
+        opacity: 100%;
     }
 }

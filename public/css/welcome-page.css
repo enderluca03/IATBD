@@ -27,7 +27,7 @@ a {
 }
 
 .login {
-    background-color: rgb(91, 114, 56);
+    background-color: rgb(78, 144, 90);
 
     width: 10rem;
     height: 5rem;
@@ -47,7 +47,7 @@ a {
 }
 
 .register {
-    background-color: rgb(91, 114, 56);
+    background-color: rgb(78, 144, 90);
 
     width: 10rem;
     height: 5rem;
@@ -73,7 +73,7 @@ a {
 
     border-radius: 5px;
     color: white;
-    background-color: rgb(91, 114, 56);
+    background-color: rgb(78, 144, 90);
 }
 
 .welcomeText h1 {

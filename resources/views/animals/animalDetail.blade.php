@@ -10,17 +10,21 @@
 <body>
   <x-navbar/>
   <main>
-    <h1>PassenOpJeDier</h1>
+    <section class="titleText">
+      <h1>PassenOpJeDier</h1>
+    </section>
     <article class="detailCard">
-      <h1>{{$animal->name}}</h1>
+      <h1>Naam: {{$animal->name}}</h1>
       <p>{{$animal->note}}</p>
-      <p>{{$animal->type}}</p>
-      @foreach ($allPics as $pics)
-        <article>
-          <img src="/media/Animals/{{$pics->pics}}" alt="image of the animal" />
-        </article>
-      @endforeach
+      <p>Leeftijd: {{$animal->age}}</p>
+      <p>Type: {{$animal->species}}</p>
+      <p>{{$name->name}}</p>
     </article>
+    @foreach ($allPics as $pics)
+      <article>
+        <img src="/media/Animals/{{$pics->pics}}" alt="image of the animal" />
+      </article>
+    @endforeach
   </main>
 </body>
 </html>
