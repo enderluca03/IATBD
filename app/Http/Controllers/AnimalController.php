@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Animals;
 use App\Models\AnimalsPics;
+use App\Models\AnimalSpecies;
 use App\Models\Search;
 use Auth;
 
@@ -22,7 +23,7 @@ class AnimalController extends Controller
 
             $allPics =  $animal->searchPics;
 
-            $name = User::where('id', $id)->first();;
+            $name = User::where('id',$animal->owner)->first();
 
             return view('animals/animalDetail', [
                 'user' => $user,
@@ -69,9 +70,9 @@ class AnimalController extends Controller
         $search = new Search;
         $search->owner = $user->id;
         $search->animal = $animal->id;
-        $search->from = '2023-06-30 12:50:00';
-        $search->to = '2023-06-30 23:59:00';
-        $search->payment = 420.00;
+        $search->from = $request->from;
+        $search->to = $request->to;
+        $search->payment = $request->price;
         $search->save();
 
         if ($animal->id) {
@@ -94,5 +95,41 @@ class AnimalController extends Controller
         }
 
         return redirect('adding/newAnimal')->with('status', 'Animal inserted in DB');
+    }
+
+    public function filter(Request $request)
+    {
+        if ($request->species) {
+            $animals = Animals::where("species", $request->species)->get();
+            $species = AnimalSpecies::where("species", $request->species)->get();
+        } else {
+            $animals = Animals::all();
+            $species = AnimalSpecies::all();
+        }
+
+        $search = Search::all();
+        $user = Auth::user();
+
+        return view('animals/index', [
+            'animals' => $animals,
+            'species' => $species,
+            'search' => $search,
+            'user' => $user,
+        ]);
+    }
+
+    public function clearFilter(Request $request)
+    {
+        $animals = Animals::all();
+        $species = AnimalSpecies::all();
+        $search = Search::all();
+        $user = Auth::user();
+    
+        return view('animals/index', [
+            'animals' => $animals,
+            'species' => $species,
+            'search' => $search,
+            'user' => $user,
+        ]);
     }
 }

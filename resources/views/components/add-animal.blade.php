@@ -21,6 +21,15 @@
     <label for="pics">Foto*</label>
     <label for="pics">*Maximaal 2 mb</label>
     <input type="file" id="pics" name="pics">
+
+    <label for="price">Prijs</label>
+    <input id="price" name="price" type="number" required>
+
+    <label for="from">Van</label>
+    <input id="from" name="from" type="datetime-local" required>
+
+    <label for="to">Tot</label>
+    <input id="to" name="to" type="datetime-local" required>
     
     <input type="submit" id="submit" value="Klaar">
 </form>

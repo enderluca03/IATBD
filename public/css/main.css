@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: auto;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -85,6 +86,8 @@ article {
 
     min-height: 30vh;
 
+    margin: 15px;
+
     border-radius: 10px;
     color: #28d886;
 }
@@ -147,6 +150,8 @@ article form input[type="submit"] {
     justify-content: center;
     align-items: center;
 
+    margin-top: 25px;
+
     color: #28d886;
 }
 
@@ -159,13 +164,15 @@ article form input[type="submit"] {
     background-color: #202020;
     position: relative;
     animation-name: slide-in;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
 }
 
 /* Add pages */
 .addForm {
     grid-column-start: 2;
+    background-color: #202020;
+    height: auto;
 }
 
 /* Animal and Post */
@@ -179,6 +186,28 @@ article form input[type="submit"] {
     color: rgb(197, 197, 197);
     font-size: 2rem;
     padding: 5%;
+}
+
+/* Animal filter */
+.animalFilter {
+    grid-column-start: 3;
+}
+
+.animalFilter select {
+    background-color: #2a4534;
+    color: white;
+    margin: 5%;
+}
+
+.animalFilter input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 950px) {

@@ -72,6 +72,9 @@ Route::middleware(['auth'])-> group(function() {
     Route::get('/deleteAnimal/{id}', [MainController::class, "deleteAnimal"]);
 
 
+    Route::post('/animals/filter', [AnimalController::class, 'filter'])->name('animals.filter');
+
+    Route::post('/animals/clearFilter', [AnimalController::class, 'clearFilter'])->name('animals.clearFilter');
 });
 
 Route::middleware(['auth', 'owner'])-> group(function() {
