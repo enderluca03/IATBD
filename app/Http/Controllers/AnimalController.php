@@ -20,6 +20,7 @@ class AnimalController extends Controller
 
         if ($search != null) {
             $animal = $search->searchingFor()->first();
+            
 
             $allPics =  $animal->searchPics;
 

@@ -10,6 +10,7 @@ use App\Models\Address;
 use App\Models\AddressPics;
 use App\Models\Search;
 use App\Models\User;
+use App\Models\Requests;
 use Auth;
 use DB;
 
@@ -93,9 +94,41 @@ class MainController extends Controller
     }
 
     public function deleteAnimal($animalID){
+        DB::delete('delete from request where animal = ?', [$animalID]);
         DB::delete('delete from animals_pics where animal = ?',[$animalID]);
         DB::delete('delete from search where animal = ?',[$animalID]);
         DB::delete('delete from animals where animalID = ?',[$animalID]);
         return redirect('remove')->with('status', 'Removed post from db');
+    }
+
+    public function showRequest(){
+        $animals = Animals::all();
+        $species = AnimalSpecies::all();
+        $addresses = Address::all();
+        $search = Search::all();
+        $user = Auth::user();
+        $requests = Request::all();
+
+        return view('dashboard', [
+            'animals' => $animals,
+            'species' => $species,
+            'addresses' => $addresses,
+            'searchg' => $search,
+            'user' => $user,
+            'request' => $requests,
+        ]);
+    }
+
+    public function acceptRequest(Request $request){
+        $user = Auth::user();
+        $animal = Animals::all();
+
+        $accept = new Requests;
+        $accept->owner = $user->id;
+        $accept->animal = $request->id;
+        $accept->accepted = true;
+        $accept->save();
+
+        return redirect('animals')->with('status', 'Request inserted in DB');
     }
 }

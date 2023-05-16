@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth'])-> group(function() {
-    Route::get('/index', [MainController::class, 'showUser'])->name("account");
+    Route::get('/index', [MainController::class, 'showUser', 'showRequest'])->name("account");
 
     Route::get('/dashboard', function () {
         return view('index');
@@ -75,6 +75,8 @@ Route::middleware(['auth'])-> group(function() {
     Route::post('/animals/filter', [AnimalController::class, 'filter'])->name('animals.filter');
 
     Route::post('/animals/clearFilter', [AnimalController::class, 'clearFilter'])->name('animals.clearFilter');
+
+    Route::post('/animals/accept', [MainController::class, 'acceptRequest'])->name('animals.accept');
 });
 
 Route::middleware(['auth', 'owner'])-> group(function() {

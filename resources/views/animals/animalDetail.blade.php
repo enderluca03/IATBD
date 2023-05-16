@@ -30,6 +30,12 @@
         <img src="/media/Animals/{{$pics->pics}}" alt="image of the animal" />
       </article>
     @endforeach
+            
+    <form method="post" class="accept" name="accept" id="accept" enctype="multipart/form-data" action="{{ route('animals.accept') }}">
+      @csrf
+      <input type="hidden" name="animal_id" value="{{$id}}">
+      <input type="submit" id="submit" value="Ik wil">
+    </form>
   </main>
 </body>
 </html>
