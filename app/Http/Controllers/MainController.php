@@ -80,8 +80,20 @@ class MainController extends Controller
     public function showUser(){
         $user = Auth::user();
 
+        $animals = Animals::all();
+        $species = AnimalSpecies::all();
+        $addresses = Address::all();
+        $search = Search::all();
+        $requests = Requests::all();
+
         return view('dashboard', [
             'user' => $user,
+
+            'animals' => $animals,
+            'species' => $species,
+            'addresses' => $addresses,
+            'searchg' => $search,
+            'requests' => $requests,
         ]);
     }
 
@@ -101,32 +113,33 @@ class MainController extends Controller
         return redirect('remove')->with('status', 'Removed post from db');
     }
 
-    public function showRequest(){
+    public function showRequest()
+    {
         $animals = Animals::all();
         $species = AnimalSpecies::all();
         $addresses = Address::all();
         $search = Search::all();
         $user = Auth::user();
-        $requests = Request::all();
+        $requests = Requests::all();
 
-        return view('dashboard', [
+        return view('requests', [
             'animals' => $animals,
             'species' => $species,
             'addresses' => $addresses,
             'searchg' => $search,
             'user' => $user,
-            'request' => $requests,
+            'requests' => $requests,
         ]);
     }
 
     public function acceptRequest(Request $request){
         $user = Auth::user();
-        $animal = Animals::all();
-
+        $animalId = $request->input('animal_id');
+    
         $accept = new Requests;
         $accept->owner = $user->id;
-        $accept->animal = $request->id;
-        $accept->accepted = true;
+        $accept->animal = $animalId;
+        $accept->accepted = false;
         $accept->save();
 
         return redirect('animals')->with('status', 'Request inserted in DB');

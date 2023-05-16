@@ -15,12 +15,12 @@
   <main>
     <section class="pageLink">
       <article class="detailCard">
-        <p>Bekijk alle verzoeken</p>
-        <a href="{{ route('allPosts') }}">Alle verzoeken</a>
+        <p>Bekijk alle adressen</p>
+        <a href="{{ route('allPosts') }}">Alle adressen</a>
       </article>
       <article class="detailCard">
-        <p>Maak een nieuw verzoek</p>
-        <a href="{{ route('newPost') }}">Nieuw verzoek</a>
+        <p>Maak een nieuw adres</p>
+        <a href="{{ route('newPost') }}">Nieuw adres</a>
       </article>
       <article class="detailCard">
         <p>Bekijk alle dieren</p>

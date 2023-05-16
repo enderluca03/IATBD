@@ -20,7 +20,14 @@
                 @endif
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <p>Nieuwe verzoeken</p>
-                    
+                    @foreach ($requests as $request)
+                    <p>{{$request->owner}}</p>
+                    <p>{{$request->animal}}</p>
+                    <form method="post" class="accept2" name="accept2" id="accept2" enctype="multipart/form-data" action="{{ route('animals.accept2') }}">
+                        @csrf
+                        <input type="submit" id="submit" value="Accepteer">
+                    </form>
+                    @endforeach
                 </div>
             </div>
         </div>

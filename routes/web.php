@@ -37,7 +37,8 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth'])-> group(function() {
-    Route::get('/index', [MainController::class, 'showUser', 'showRequest'])->name("account");
+    Route::get('/index', [MainController::class, 'showUser'])->name("account");
+    Route::get('/requests', [MainController::class, 'showRequest'])->name("requests");
 
     Route::get('/dashboard', function () {
         return view('index');
