@@ -77,7 +77,9 @@ Route::middleware(['auth'])-> group(function() {
 
     Route::post('/animals/clearFilter', [AnimalController::class, 'clearFilter'])->name('animals.clearFilter');
 
-    Route::post('/animals/accept', [MainController::class, 'acceptRequest'])->name('animals.accept');
+    Route::post('/animals/accept', [MainController::class, 'createRequest'])->name('animals.accept');
+
+    Route::post('/animals/accept2', [MainController::class, 'acceptRequest'])->name('animals.accept2');
 });
 
 Route::middleware(['auth', 'owner'])-> group(function() {

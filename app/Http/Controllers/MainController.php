@@ -85,7 +85,13 @@ class MainController extends Controller
         $addresses = Address::all();
         $search = Search::all();
         $requests = Requests::all();
+        $animalNames = [];
 
+        foreach ($requests as $request) {
+            $animal = Animals::where('animalID', $request->animal)->first();
+            $animalNames[$request->id] = $animal ? $animal->name : '';
+        }
+    
         return view('dashboard', [
             'user' => $user,
 
@@ -94,6 +100,7 @@ class MainController extends Controller
             'addresses' => $addresses,
             'searchg' => $search,
             'requests' => $requests,
+            'animalNames' => $animalNames,
         ]);
     }
 
@@ -132,16 +139,29 @@ class MainController extends Controller
         ]);
     }
 
-    public function acceptRequest(Request $request){
+    public function createRequest(Request $request){
         $user = Auth::user();
         $animalId = $request->input('animal_id');
     
-        $accept = new Requests;
-        $accept->owner = $user->id;
-        $accept->animal = $animalId;
-        $accept->accepted = false;
-        $accept->save();
+        $create = new Requests;
+        $create->owner = $user->id;
+        $create->animal = $animalId;
+        $create->accepted = false;
+        $create->save();
 
         return redirect('animals')->with('status', 'Request inserted in DB');
+    }
+
+    public function acceptRequest (Request $request){
+        $requestId = $request->input('request_id');
+        $accept = Requests::find($requestId);
+    
+        if ($accept) {
+            $accept->accepted = true;
+            $accept->save();
+            return redirect('dashboard')->with('status', 'Request accepted');
+        } else {
+            return redirect('dashboard')->with('error', 'Request not found');
+        }
     }
 }

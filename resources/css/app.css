@@ -1753,3 +1753,21 @@ select {
         padding-right: 2rem;
     }
 }
+
+/* Eigen styling */
+.animalRequests {
+    background-color: #617795;
+    border-radius: 5px;
+    width: 30vw;
+    padding: 10px;
+}
+
+.animalRequests input {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
