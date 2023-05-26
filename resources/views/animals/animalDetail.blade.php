@@ -36,6 +36,17 @@
       <input type="hidden" name="animal_id" value="{{$id}}">
       <input type="submit" id="submit" value="Ik wil">
     </form>
+
+    <h2>Add a Review</h2>
+    <form method="post" action="{{ route('animals.addReview') }}">
+        @csrf
+        <input type="hidden" name="animal_id" value="{{ $animal->animalID }}">
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" id="rating" min="1" max="5" required>
+        <label for="feedback">Feedback:</label>
+        <textarea name="feedback" id="feedback" rows="3" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
   </main>
 </body>
 </html>

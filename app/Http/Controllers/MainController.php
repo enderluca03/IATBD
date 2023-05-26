@@ -11,6 +11,7 @@ use App\Models\AddressPics;
 use App\Models\Search;
 use App\Models\User;
 use App\Models\Requests;
+use App\Models\Feedback;
 use Auth;
 use DB;
 
@@ -77,30 +78,35 @@ class MainController extends Controller
         ]);
     }
 
-    public function showUser(){
+    public function showUser()
+    {
         $user = Auth::user();
-
+    
         $animals = Animals::all();
         $species = AnimalSpecies::all();
         $addresses = Address::all();
         $search = Search::all();
-        $requests = Requests::all();
+    
+        $requests = Requests::where('accepted', false)->get();
+    
         $animalNames = [];
-
+    
         foreach ($requests as $request) {
             $animal = Animals::where('animalID', $request->animal)->first();
             $animalNames[$request->id] = $animal ? $animal->name : '';
         }
     
+        $feedbacks = Feedback::all();
+
         return view('dashboard', [
             'user' => $user,
-
             'animals' => $animals,
             'species' => $species,
             'addresses' => $addresses,
             'searchg' => $search,
             'requests' => $requests,
             'animalNames' => $animalNames,
+            'feedbacks' => $feedbacks
         ]);
     }
 
@@ -127,8 +133,9 @@ class MainController extends Controller
         $addresses = Address::all();
         $search = Search::all();
         $user = Auth::user();
-        $requests = Requests::all();
-
+    
+        $requests = Requests::where('accepted', false)->get();
+    
         return view('requests', [
             'animals' => $animals,
             'species' => $species,

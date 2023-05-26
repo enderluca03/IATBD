@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string("address");
+            $table->unsignedBigInteger("animal");
             $table->longText("feedback");
             $table->integer('rate');
             $table->timestamps();
 
-            $table->foreign("address")->references("address")->on("address");
+            $table->foreign("animal")->references("animalID")->on("animals");
         });
     }
 

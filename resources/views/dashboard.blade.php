@@ -32,7 +32,18 @@
                 @endforeach
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <p>Reviews</p>
+                    <h2>Reviews</h2>
+                    @foreach ($feedbacks as $feedback)
+                        <div>
+                            @php
+                                $animal = $animals->firstWhere('animalID', $feedback->animal);
+                                $animalName = $animal ? $animal->name : 'N/A';
+                            @endphp
+                            <p>Animal: {{ $animalName }}</p>
+                            <p>Rating: {{ $feedback->rate }}</p>
+                            <p>Feedback: {{ $feedback->feedback }}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

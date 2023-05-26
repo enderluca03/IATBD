@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+| Here is where you can register web routes for your application.
+| These routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
@@ -35,8 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-Route::middleware(['auth'])-> group(function() {
+Route::middleware(['auth'])->group(function () {
     Route::get('/index', [MainController::class, 'showUser'])->name("account");
     Route::get('/requests', [MainController::class, 'showRequest'])->name("requests");
 
@@ -72,7 +71,6 @@ Route::middleware(['auth'])-> group(function() {
 
     Route::get('/deleteAnimal/{id}', [MainController::class, "deleteAnimal"]);
 
-
     Route::post('/animals/filter', [AnimalController::class, 'filter'])->name('animals.filter');
 
     Route::post('/animals/clearFilter', [AnimalController::class, 'clearFilter'])->name('animals.clearFilter');
@@ -80,9 +78,11 @@ Route::middleware(['auth'])-> group(function() {
     Route::post('/animals/accept', [MainController::class, 'createRequest'])->name('animals.accept');
 
     Route::post('/animals/accept2', [MainController::class, 'acceptRequest'])->name('animals.accept2');
+
+    Route::post('/animals/addReview', [AnimalController::class, 'addReview'])->name('animals.addReview');
 });
 
-Route::middleware(['auth', 'owner'])-> group(function() {
+Route::middleware(['auth', 'owner'])->group(function () {
     Route::get('/remove', [MainController::class, 'showAll'])->name("remove");
 });
 

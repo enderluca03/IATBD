@@ -21,10 +21,10 @@ class AnimalController extends Controller
         if ($search != null) {
             $animal = $search->searchingFor()->first();
             
-
             $allPics =  $animal->searchPics;
 
             $name = User::where('id',$animal->owner)->first();
+            $feedbacks = Feedback::where('animal', $animal->animalID)->get();
 
             return view('animals/animalDetail', [
                 'user' => $user,
@@ -34,6 +34,7 @@ class AnimalController extends Controller
                 'animal' => $animal,
                 'allPics' => $allPics,
                 'name' => $name,
+                'feedbacks' => $feedbacks,
             ]);
         }
 
@@ -132,5 +133,18 @@ class AnimalController extends Controller
             'search' => $search,
             'user' => $user,
         ]);
+    }
+
+    public function addReview(Request $request)
+    {
+        $user = Auth::user();
+
+        $feedback = new Feedback();
+        $feedback->animal = $request->animal_id;
+        $feedback->feedback = $request->feedback;
+        $feedback->rate = $request->rating;
+        $feedback->save();
+
+        return redirect()->back()->with('status', 'Review added successfully.');
     }
 }
