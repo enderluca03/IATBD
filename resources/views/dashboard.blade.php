@@ -34,12 +34,12 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h2>Reviews</h2>
                     @foreach ($feedbacks as $feedback)
-                        <div>
+                        <div class="p-6 text-gray-900 dark:text-gray-100">
                             @php
                                 $animal = $animals->firstWhere('animalID', $feedback->animal);
                                 $animalName = $animal ? $animal->name : 'N/A';
                             @endphp
-                            <p>Animal: {{ $animalName }}</p>
+                            <p>Dier: {{ $animalName }}</p>
                             <p>Rating: {{ $feedback->rate }}</p>
                             <p>Feedback: {{ $feedback->feedback }}</p>
                         </div>

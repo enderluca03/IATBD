@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date("updated_at")->default("2000-01-01 00:00:00");
             $table->date("created_at")->default("2000-01-01 00:00:00");
 
-            $table->foreign("owner")->references('id')->on("users");
+            $table->foreign("owner")->references('id')->on("users")->onDelete('cascade');;
         });
     }
 

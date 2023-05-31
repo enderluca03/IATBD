@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('rate');
             $table->timestamps();
 
-            $table->foreign("animal")->references("animalID")->on("animals");
+            $table->foreign("animal")->references("animalID")->on("animals")->onDelete('cascade');;
         });
     }
 

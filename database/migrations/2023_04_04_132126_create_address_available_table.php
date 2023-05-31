@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string("address");
             $table->string("for");
 
-            $table->foreign("address")->references("address")->on("address");
+            $table->foreign("address")->references("address")->on("address")->onDelete('cascade');;
         });
     }
 

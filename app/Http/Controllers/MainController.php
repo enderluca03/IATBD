@@ -68,6 +68,7 @@ class MainController extends Controller
         $addresses = Address::all();
         $search = Search::all();
         $user = Auth::user();
+        $users = User::all();
 
         return view('remove', [
             'animals' => $animals,
@@ -75,6 +76,7 @@ class MainController extends Controller
             'addresses' => $addresses,
             'searchg' => $search,
             'user' => $user,
+            'users' => $users,
         ]);
     }
 
@@ -123,7 +125,15 @@ class MainController extends Controller
         DB::delete('delete from animals_pics where animal = ?',[$animalID]);
         DB::delete('delete from search where animal = ?',[$animalID]);
         DB::delete('delete from animals where animalID = ?',[$animalID]);
-        return redirect('remove')->with('status', 'Removed post from db');
+        return redirect('remove')->with('status', 'Removed animal from db');
+    }
+
+    public function deleteUser($id){
+        DB::delete('delete from requests where owner = ?',[$id]);
+        DB::delete('delete from address where owner = ?',[$id]);
+        DB::delete('delete from animals where owner = ?',[$id]);
+        DB::delete("delete from users where id = ?", [$id]);
+        return redirect("remove")->with("status", "Removed user from db");
     }
 
     public function showRequest()

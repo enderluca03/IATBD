@@ -13,7 +13,19 @@
 <body>
   <x-navbar/>
   <main>
-    <article>    
+    <article>
+      <h1>Dieren</h1>
+      @foreach ($animals as $animal)
+        <article class="detailCard">
+          <h1>{{$animal->name}}</h1>
+          <a href="/deleteAnimal/{{$animal->animalID}}">
+            Verwijder dit element
+          </a>
+        </article>
+      @endforeach
+      </article>
+    <article> 
+      <h1>Adressen</h1>   
       @foreach ($addresses as $address)
       <article class="detailCard">
         <h1>{{$address->address}}</h1>
@@ -24,15 +36,16 @@
     @endforeach
     </article>
     <article>
-      @foreach ($animals as $animal)
-        <article class="detailCard">
-          <h1>{{$animal->name}}</h1>
-          <a href="/deleteAnimal/{{$animal->animalID}}">
-            Verwijder dit element
-          </a>
-        </article>
-      @endforeach
-      </article>
+        <h1>Gebruikers permanent blokkeren</h1>
+        @foreach ($users as $user)
+          <article class="detailCard">
+            <h1>{{$user->name}}</h1>
+            <a href="/deleteUser/{{$user->id}}">
+              Verwijder dit element
+            </a>
+          </article>
+        @endforeach
+    </article>
   </main>
 </body>
 </html>

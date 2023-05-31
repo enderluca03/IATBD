@@ -21,8 +21,8 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreign("owner")->references("id")->on("users");
-            $table->foreign("animal")->references("animalID")->on("animals");
+            $table->foreign("owner")->references("id")->on("users")->onDelete('cascade');;
+            $table->foreign("animal")->references("animalID")->on("animals")->onDelete('cascade');;
         });
     }
 

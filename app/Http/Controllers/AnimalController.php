@@ -8,6 +8,7 @@ use App\Models\Animals;
 use App\Models\AnimalsPics;
 use App\Models\AnimalSpecies;
 use App\Models\Search;
+use App\Models\Feedback;
 use Auth;
 
 

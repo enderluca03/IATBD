@@ -80,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/animals/accept2', [MainController::class, 'acceptRequest'])->name('animals.accept2');
 
     Route::post('/animals/addReview', [AnimalController::class, 'addReview'])->name('animals.addReview');
+
+    Route::get('/deleteUser/{id}', [MainController::class, "deleteUser"]);
 });
 
 Route::middleware(['auth', 'owner'])->group(function () {

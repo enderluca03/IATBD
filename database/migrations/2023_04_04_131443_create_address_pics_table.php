@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("pics")->default("Not_found.jpg");
             $table->timestamps();
 
-            $table->foreign("address")->references("address")->on("address");
+            $table->foreign("address")->references("address")->on("address")->onDelete('cascade');;
         });
     }
 

@@ -38,7 +38,7 @@
     </form>
 
     <h2>Add a Review</h2>
-    <form method="post" action="{{ route('animals.addReview') }}">
+    <form method="post" class="accept" action="{{ route('animals.addReview') }}">
         @csrf
         <input type="hidden" name="animal_id" value="{{ $animal->animalID }}">
         <label for="rating">Rating:</label>
