@@ -221,6 +221,11 @@ article form input[type="submit"] {
     cursor: pointer;
 }
 
+.reviewCard {
+    width: 25vw;
+    background-color: #202020;
+}
+
 @media only screen and (max-width: 950px) {
     .detailCard {
         width: 35vw;
